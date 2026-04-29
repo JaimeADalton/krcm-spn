@@ -48,6 +48,10 @@ impl From<[u8; 32]> for RootKey {
 }
 
 impl EncKey {
+    pub fn from_bytes(value: [u8; 32]) -> Self {
+        Self(value)
+    }
+
     pub fn expose_for_tests(&self) -> [u8; 32] {
         self.0
     }

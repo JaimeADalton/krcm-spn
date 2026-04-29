@@ -1,0 +1,15 @@
+[build-system]
+requires = ["maturin>=1.5,<2"]
+build-backend = "maturin"
+
+[project]
+name = "krcm-spn"
+version = "0.1.0"
+description = "Experimental KRCM-SPN encryption research implementation"
+requires-python = ">=3.10"
+
+[tool.maturin]
+manifest-path = "crates/krcm-py/Cargo.toml"
+python-source = "."
+module-name = "krcm._krcm_rust"
+features = ["pyo3/extension-module"]

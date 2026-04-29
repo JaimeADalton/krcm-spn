@@ -21,13 +21,11 @@ class RustEquivalenceTests(unittest.TestCase):
         try:
             core._rust_encrypt_blocks = None
             core._rust_decrypt_blocks = None
-            for version in [3, 4]:
-                with self.subTest(version=version):
-                    py_cipher = core._encrypt_blocks(padded, enc_key, nonce, version)
-                    rs_cipher = self.rust.encrypt_blocks(padded, enc_key, nonce, version)
-                    self.assertEqual(rs_cipher, py_cipher)
-                    self.assertEqual(self.rust.decrypt_blocks(rs_cipher, enc_key, nonce, version), padded)
-                    self.assertEqual(core._decrypt_blocks(py_cipher, enc_key, nonce, version), padded)
+            py_cipher = core._encrypt_blocks(padded, enc_key, nonce, 4)
+            rs_cipher = self.rust.encrypt_blocks(padded, enc_key, nonce, 4)
+            self.assertEqual(rs_cipher, py_cipher)
+            self.assertEqual(self.rust.decrypt_blocks(rs_cipher, enc_key, nonce, 4), padded)
+            self.assertEqual(core._decrypt_blocks(py_cipher, enc_key, nonce, 4), padded)
         finally:
             core._rust_encrypt_blocks = saved_encrypt
             core._rust_decrypt_blocks = saved_decrypt

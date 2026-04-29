@@ -1,0 +1,14 @@
+[package]
+name = "krcm-py"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Python bindings for the experimental KRCM-SPN research implementation"
+
+[lib]
+name = "_krcm_rust"
+crate-type = ["cdylib"]
+
+[dependencies]
+krcm-core = { path = "../krcm-core" }
+pyo3 = { version = "0.22", features = ["extension-module"] }

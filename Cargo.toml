@@ -1,3 +1,7 @@
 [workspace]
-members = ["crates/krcm-core", "crates/krcm-cli"]
+members = ["crates/krcm-core", "crates/krcm-cli", "crates/krcm-py"]
 resolver = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

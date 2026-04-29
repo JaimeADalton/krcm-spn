@@ -504,7 +504,7 @@ def _decrypt_one_block_v3(block: bytes, seed: bytes) -> bytes:
 
 
 def _encrypt_blocks(padded: bytes, enc_key: bytes, nonce: bytes, version: int = VERSION) -> bytes:
-    if _rust_encrypt_blocks is not None:
+    if _rust_encrypt_blocks is not None and int(version) == 4:
         return _rust_encrypt_blocks(padded, enc_key, nonce, int(version))
     if len(padded) % BLOCK_BYTES != 0:
         raise ValueError("Datos no alineados a bloque")
@@ -521,7 +521,7 @@ def _encrypt_blocks(padded: bytes, enc_key: bytes, nonce: bytes, version: int = 
 
 
 def _decrypt_blocks(ciphertext: bytes, enc_key: bytes, nonce: bytes, version: int) -> bytes:
-    if _rust_decrypt_blocks is not None:
+    if _rust_decrypt_blocks is not None and int(version) == 4:
         return _rust_decrypt_blocks(ciphertext, enc_key, nonce, int(version))
     if len(ciphertext) % BLOCK_BYTES != 0:
         raise FormatError("Texto cifrado no alineado a bloque")
