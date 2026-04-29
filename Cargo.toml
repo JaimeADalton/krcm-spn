@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/krcm-core", "crates/krcm-cli"]
+resolver = "2"

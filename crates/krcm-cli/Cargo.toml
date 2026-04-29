@@ -1,0 +1,17 @@
+[package]
+name = "krcm-cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Command-line interface for the experimental KRCM-SPN research implementation"
+
+[[bin]]
+name = "krcm"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+krcm-core = { path = "../krcm-core" }
+rand = "0.8"
+rpassword = "7"
+tempfile = "3"

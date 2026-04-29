@@ -1,0 +1,44 @@
+[package]
+name = "krcm-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+krcm-core = { path = "../crates/krcm-core" }
+
+[[bin]]
+name = "fuzz_decrypt_auto"
+path = "fuzz_targets/fuzz_decrypt_auto.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_parse_v4_header"
+path = "fuzz_targets/fuzz_parse_v4_header.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_parse_v5_header"
+path = "fuzz_targets/fuzz_parse_v5_header.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_unpack_inner_v5"
+path = "fuzz_targets/fuzz_unpack_inner_v5.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_segment_table"
+path = "fuzz_targets/fuzz_segment_table.rs"
+test = false
+doc = false

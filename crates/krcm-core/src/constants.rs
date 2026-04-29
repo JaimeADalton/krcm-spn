@@ -1,0 +1,15 @@
+pub const MODULUS: u128 = 1u128 << 64;
+pub const BLOCK_BYTES: usize = 32;
+pub const WORD_COUNT: usize = 4;
+pub const WORD_BYTES: usize = 8;
+pub const TAG_BYTES: usize = 32;
+pub const SALT_BYTES: usize = 16;
+pub const NONCE_BYTES: usize = 16;
+pub const ROUNDS: usize = 10;
+pub const DEFAULT_ITERATIONS: u32 = 200_000;
+pub const MAX_PBKDF2_ITERATIONS: u32 = 1_000_000;
+pub const MAX_HEADER_BYTES: usize = 4096;
+pub const MAGIC_V4: &[u8; 8] = b"AMPCRYPT";
+pub const MAGIC_V5: &[u8; 8] = b"KRCMSPN\0";
+pub const VERSION_V4: u8 = 4;
+pub const HEADER_V5_SIZE: usize = 64;

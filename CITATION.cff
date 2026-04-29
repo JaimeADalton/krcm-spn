@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, cite it as below."
+title: "KRCM-SPN"
+version: "0.1.0"
+type: software
+authors:
+  - family-names: "Dalton"
+    given-names: "Jaime"
+abstract: "Experimental Rust implementation of the KRCM-SPN authenticated container format."
+license: "MIT OR Apache-2.0"
